@@ -45,4 +45,39 @@ public class ControlaBanco {
         db.close();
         return cursor;
     }
+
+    public void deletaDado(int id){
+        String where = "_id = " + id;
+        db = banco.getReadableDatabase();
+        db.delete("tarefa", where, null);
+        db.close();
+
+    }
+
+    public Cursor carregaDadoPorId(int id){
+        Cursor cursor;
+        String [] campos = {"_id", "nome"};
+        String where = "_id = "+id;
+        db = banco.getReadableDatabase();
+        cursor = db.query("tarefa", campos, where, null, null, null, null);
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
+
+    public void alteraDado(int id, String nome){
+        ContentValues valores;
+        String where;
+
+        db = banco.getWritableDatabase();
+        where = "_id="+id;
+        valores = new ContentValues();
+        valores.put("nome", nome);
+
+        db.update("tarefa", valores, where, null);
+        db.close();
+    }
 }
