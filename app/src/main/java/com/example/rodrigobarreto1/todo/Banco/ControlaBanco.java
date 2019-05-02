@@ -35,7 +35,7 @@ public class ControlaBanco {
 
     public Cursor carregaDados(){
         Cursor cursor;
-        String [] campos = {"_id", "titulo"};
+        String [] campos = {"_id", "nome"};
         db = banco.getReadableDatabase();
         cursor = db.query("tarefa", campos, null, null, null, null, null);
 
