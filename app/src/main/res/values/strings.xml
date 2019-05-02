@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Todo</string>
+    <string name="app_name">Todo - "A fazer"</string>
+    <string name="dica_nome">Nome da tarefa</string>
+    <string name="btn_cadastrar">Cadastrar</string>
 </resources>
